@@ -6,7 +6,7 @@ from src.gross.model_training_gross import train_model
 from src.gross.prediction_gross import print_top_coefficients, plot_top_coefficients
 
 def main():
-    # Carregar variáveis de ambiente do arquivo .env
+    # Carregar variáveis de ambiente
     load_dotenv()
 
     # Obter caminhos do arquivo csv das variáveis de ambiente

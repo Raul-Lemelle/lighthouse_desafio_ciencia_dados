@@ -1,25 +1,15 @@
-import matplotlib.pyplot as plt
 import pandas as pd
+import joblib
+import os
 
-def print_top_coefficients(model, X):
-    # Obtendo os coeficientes do modelo
-    coef = pd.Series(model.coef_, index=X.columns)
+def predict_imdb_rating(new_movie, model_path):
+    model_filename = os.path.join(model_path, 'model_imdb_rating.pkl')
+    model = joblib.load(model_filename)
 
-    # Selecionando os coeficientes mais significativos
-    top_coef = coef.sort_values(ascending=False).head(10)
+    new_movie_df = pd.DataFrame([new_movie])
+    new_movie_df['Gross'] = new_movie_df['Gross'].replace({'\$': '', ',': ''}, regex=True).astype(float)
+    new_movie_df['Released_Year'] = new_movie_df['Released_Year'].astype(int)
+    new_movie_df['Runtime'] = new_movie_df['Runtime'].str.replace(' min', '').astype(int)
     
-    # Exibindo os diretores e atores com maior impacto
-    print("Diretores e atores com coeficientes maiores têm um impacto mais significativo no faturamento do filme:")
-    for index, value in top_coef.items():
-        print(f'{index}: {value:.2f}')
-
-    return top_coef
-
-def plot_top_coefficients(top_coef):
-    # Plotando os coeficientes dos diretores e atores mais significativos
-    plt.figure(figsize=(10, 6))
-    top_coef.plot(kind='bar')
-    plt.title('Top 10 Diretores e Atores com Maior Impacto no Faturamento')
-    plt.xlabel('Diretor/Atores')
-    plt.ylabel('Coeficiente')
-    plt.show()
+    predicted_rating = model.predict(new_movie_df)
+    return predicted_rating[0]
