@@ -88,7 +88,7 @@ Para executar o projeto, siga os passos abaixo:
 
 ## Contribuição
 
-Contribuições são bem-vindas! Para maiores detalhes, consulte o arquivo CONTRIBUTING.md.
+Contribuições são bem-vindas! Para maiores detalhes, consulte o arquivo [CONTRIBUTING.md](https://github.com/Raul-Lemelle/lighthouse_desafio_ciencia_dados/blob/main/CONTRIBUTING.md).
 
 ## Licença
 
