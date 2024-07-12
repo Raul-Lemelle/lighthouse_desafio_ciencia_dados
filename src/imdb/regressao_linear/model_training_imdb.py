@@ -44,7 +44,7 @@ def train_and_save_model(df, model_path):
     load_dotenv()
 
     models_path = os.getenv('MODELS_PATH')
-    path_and_namefile = f'{models_path}/modelo_imdb_rating.pkl'
+    path_and_namefile = f'{models_path}/modelo_regressao_linear_imdb_rating.pkl'
     joblib.dump(model, path_and_namefile)
 
     return model, X_test, y_test

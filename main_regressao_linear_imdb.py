@@ -1,9 +1,9 @@
 import os
 from dotenv import load_dotenv
 
-from src.imdb.data_preparation_imdb import load_and_prepare_data, preprocess_data
-from src.imdb.model_training_imdb import train_and_save_model
-from src.imdb.prediction_imdb import predict_imdb_rating
+from src.imdb.regressao_linear.data_preparation_imdb import load_and_prepare_data, preprocess_data
+from src.imdb.regressao_linear.model_training_imdb import train_and_save_model
+from src.imdb.regressao_linear.prediction_imdb import predict_imdb_rating
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -42,7 +42,7 @@ new_movie = {
 }
 
 # Prever a nota do IMDb
-predicted_rating = predict_imdb_rating(new_movie, model_path)
+predicted_rating = round(predict_imdb_rating(new_movie, model_path), 1)
 print(f'Nota prevista do IMDb: {predicted_rating}')
 
 # Relatar o insight
@@ -60,4 +60,4 @@ print(f"Número de Votos: 2,343,110")
 print(f"Faturamento: $28,341,469")
 print(f"Nota prevista do IMDb: {predicted_rating}")
 
-print("\nUtilizando um modelo de regressão treinado com dados históricos de filmes, a nota prevista do IMDb para o filme 'The Shawshank Redemption' é {predicted_rating}.")
+print(f"\nUtilizando um modelo de regressão linear treinado com dados históricos de filmes, a nota prevista do IMDb para o filme 'The Shawshank Redemption' é {predicted_rating}.")

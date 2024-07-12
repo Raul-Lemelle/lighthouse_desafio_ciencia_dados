@@ -3,7 +3,7 @@ import joblib
 import os
 
 def predict_imdb_rating(new_movie, model_path):
-    model_filename = os.path.join(model_path, 'modelo_imdb_rating.pkl')
+    model_filename = os.path.join(model_path, 'modelo_regressao_linear_imdb_rating.pkl')
     model = joblib.load(model_filename)
 
     new_movie_df = pd.DataFrame([new_movie])

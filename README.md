@@ -15,36 +15,50 @@ projeto/
 │   └── external/            # Dados externos adicionais
 │
 ├── notebooks/
-│   ├── eda.ipynb             # Análise exploratória dos dados (EDA)
-│   ├── analysis_gross.ipynb  # Insights e Predição de Faturamento com base no diretor e atores/atrizes
-│   └── analysis_imdb.ipynb   # Insights e Predição de notas do IMDb para novos filmes
+│   ├── eda.ipynb                                        # Análise exploratória dos dados (EDA)
+│   ├── modelagem_dados_imdb.ipynb                       # Modelagem preditiva
+│   ├── analysis_random_forest_regressor_imdb.ipynb      # Insights e predição de notas do IMDb para novos filmes (Random Forest Regressor)
+│   ├── analysis_regressao_linear_gross.ipynb            # Insights e predição de faturamento com base no diretor e atores/atrizes (Linear Regression)
+│   └── analysis_regressao_linear_imdb.ipynb             # Insights e predição de notas do IMDb para novos filmes (Linear Regression)
 │
 ├── reports/
-│   ├── eda_report.pdf       # Relatório da análise exploratória dos dados
-│   ├── modeling_report.pdf  # Relatório da modelagem preditiva
-│   └── final_report.pdf     # Relatório final do projeto
+│   ├── relatorio_eda_imdb.pdf                    # Relatório da análise exploratória dos dados
+│   ├── relatorio_previsao_nota_imdb              # Relatório dos modelos de predição
+│   └── imdb_relatorio_final_das_analises.pdf     # Relatório final do projeto
 │
 ├── src/
 │   ├── __init__.py
-│   ├── gross/
+│   ├── gross/regressao_linear
 │   │   ├── data_preparation_gross.py  # Scripts para preparação e transformação dos dados de faturamento
 │   │   ├── model_training_gross.py    # Scripts para treinamento e avaliação do modelo de faturamento
 │   │   └── prediction_gross.py        # Scripts para predição utilizando o modelo treinado de faturamento
 │   │
 │   └── imdb/
-│       ├── data_preparation_imdb.py  # Scripts para preparação e transformação dos dados do IMDb
-│       ├── model_training_imdb.py    # Scripts para treinamento e avaliação do modelo do IMDb
-│       └── prediction_imdb.py        # Scripts para predição utilizando o modelo treinado do IMDb
+│        ├── regressao_linear/
+│        │   ├── data_preparation_imdb.py  # Scripts para preparação e transformação dos dados do IMDb
+│        │   ├── model_training_imdb.py    # Scripts para treinamento e avaliação do modelo do IMDb
+│        │   └── prediction_imdb.py        # Scripts para predição utilizando o modelo treinado do IMDb
+│        │      
+│        └── random_forest_regressor/ 
+│            ├── data_preparation_imdb.py  # Scripts para preparação e transformação dos dados do IMDb
+│            ├── model_training_imdb.py    # Scripts para treinamento e avaliação do modelo do IMDb
+│            └── prediction_imdb.py        # Scripts para predição utilizando o modelo treinado do IMDb
+│
+│
 │
 ├── models/
-│   ├── model_gross.pkl       # Modelo treinado salvo para faturamento
-│   └── model_imdb_rating.pkl       # Modelo treinado salvo para nota do IMDb
+│   ├── modelo_random_forest_imdb.pkl              # Modelo treinado salvo para nota do IMDb (Random Forest Regressor)
+│   ├── modelo_regressao_linear_gross.pkl          # Modelo treinado salvo para faturamento (Linear Regression)
+│   └── modelo_regressao_linear_imdb_rating.pkl    # Modelo treinado salvo para nota do IMDb (Linear Regression)
 │
-├── .gitignore               # Arquivos e diretórios a serem ignorados pelo Git
-├── README.md                # Instruções de instalação e execução do projeto
-├── requirements.txt         # Lista de dependências
-└── main_gross.py            # Script principal para faturamento
-└── main_imdb_rating.py      # Script principal para nota do IMDb
+├── .gitignore                                # Arquivos e diretórios a serem ignorados pelo Git
+├── README.md                                 # Instruções de instalação e execução do projeto
+├── requirements.txt                          # Lista de dependências
+├── CODE_OF_CONDUCT.md                        # Código de conduta do projeto
+├── CONTRIBUTING.md                           # Como contribuir no projeto
+├── main_random_forest_regressor_imdb.py      # Script principal para nota do IMDb (Random Forest Regressor)
+├── main_regressao_linear_gross.py            # Script principal para faturamento (Linear Regression)
+└── main_regressao_linear_imdb.py             # Script principal para nota do IMDb (Linear Regression)
 ```
 
 ## Funcionalidades
@@ -77,13 +91,18 @@ Para executar o projeto, siga os passos abaixo:
 3. Execute o script principal para faturamento:
 
    ```
-   python main_gross.py
+   python main_regressao_linear_gross.py
    ```
 
 4. Execute o script principal para nota do IMDb:
 
    ```
-   python main_imdb_rating.py
+   python main_regressao_linear_imdb.py
+   ```
+5. Execute o script principal para nota do IMDb:
+
+   ```
+   python main_random_forest_regressor_imdb.py
    ```
 
 ## Contribuição

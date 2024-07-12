@@ -1,9 +1,9 @@
 import os
 from dotenv import load_dotenv
 
-from src.gross.data_preparation_gross import load_and_prepare_data
-from src.gross.model_training_gross import train_model
-from src.gross.prediction_gross import print_top_coefficients, plot_top_coefficients
+from src.gross.regressao_linear.data_preparation_gross import load_and_prepare_data
+from src.gross.regressao_linear.model_training_gross import train_model
+from src.gross.regressao_linear.prediction_gross import print_top_coefficients, plot_top_coefficients
 
 def main():
     # Carregar variáveis de ambiente
